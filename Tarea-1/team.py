@@ -3,6 +3,8 @@ class Team:
     wins  = 0
     ties = 0
     losses = 0
+    goals = 0
+    received_goals = 0
     def __init__(self,name):
         "docstring"
         self.name = name
