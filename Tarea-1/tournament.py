@@ -1,8 +1,14 @@
+from sys import argv
+
 class Tournament:
-    scores=[]
-    def __init__(self):
+    teams = []
+    matches= []
+    filename=""
+    def __init__(self,filename):
+        self.filename = filename
         return
     def load_teams(self):
-        f = open('workfile', 'r')
-        return
+        f = open(self.filename, 'r')
+        for line in f:
+            print line,
     
