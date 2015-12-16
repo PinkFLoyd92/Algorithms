@@ -112,3 +112,4 @@ def mergeSort(teams):
             j=j+1
             k=k+1
     print "Merging..."
+
