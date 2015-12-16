@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class Team:
     name = ""
     wins  = 0
@@ -13,4 +14,5 @@ class Team:
     def get_total(self):
         return self.wins*3 + self.ties
         
-    
+    def __str__(self):
+        print "Name: %s" %(self.name)

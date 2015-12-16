@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from tournament import Tournament
 from sys import argv
 def main():
@@ -5,8 +6,7 @@ def main():
     txt = open(filename)
     torneo = Tournament(filename)
     torneo.load_teams()
-    
-        
+    torneo.print_teams()
         
         
 if __name__ == '__main__':
