@@ -13,7 +13,7 @@ class Tournament:
 
     def print_teams(self):
         for team in self.teams:
-            print(team.goals)
+            print(team)
             
         
     def fill_team(self,stats):
@@ -41,6 +41,8 @@ class Tournament:
         f = open(self.filename, 'r')
         for line in f:
             stats = []
+            index = [0,0]
+            team_temp = []
             # print line,
             for name in self.team_names:
                 indice = line.find(name)

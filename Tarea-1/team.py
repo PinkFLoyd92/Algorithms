@@ -15,4 +15,4 @@ class Team:
         return self.wins*3 + self.ties
         
     def __str__(self):
-        print "Name: %s" %(self.name)
+        return "Name: %s GOLES: %d GOLES RECIBIDOS: %d VICTORIAS: %d" %(self.name, self.goals, self.received_goals, self.wins)
