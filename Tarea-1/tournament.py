@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+#pylint: disable-msg=too-many-arguments
 from sys import argv
 from team import Team
 class Tournament:
@@ -53,7 +54,8 @@ class Tournament:
             indice_contador = 0
             marcador = [int(s) for s in line.split() if s.isdigit()]
             if len(marcador) !=2:
-                next(f) #skip line
+                print(line)
+               # next(f) #skip line
                 index = [0,0]
                 team_temp = []
                 stats = []
@@ -80,5 +82,33 @@ class Tournament:
                         stats.insert(1,[team_temp[0][0],1,marcador[1],marcador[0]])
                     self.fill_team(stats[0])
                     self.fill_team(stats[1])
-                
+        f.close()        
 
+def mergeSort(teams):
+    if len(teams)>1:
+        mid = len(teams)//2
+        lefthalf = teams[:mid]
+        righthalf = teams[mid:]
+        mergeSort(lefthalf)
+        mergeSort(righthalf)
+        i=0
+        j=0
+        k=0
+        while i < len(lefthalf) and j < len(righthalf):
+            if lefthalf[i].goals < righthalf[j].goals:
+                teams[k]=lefthalf[i]
+                i=i+1
+            else:
+                teams[k]=righthalf[j]
+                j=j+1
+            k=k+1
+        while i < len(lefthalf):
+            teams[k]=lefthalf[i]
+            i=i+1
+            k=k+1
+
+        while j < len(righthalf):
+            teams[k]=righthalf[j]
+            j=j+1
+            k=k+1
+    print "Merging..."
