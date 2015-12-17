@@ -15,8 +15,56 @@ class Tournament:
     def print_teams(self):
         for team in self.teams:
             print(team)
-            
+
+    def getTeam(self,name):
+        for team in self.teams:
+            if name == team.name:
+                return team
         
+    def getLexicographicOrder(self):
+        lista_lexic = []
+        score = "" #gettotal
+        gamesplayed= "" # get_numberOfGames
+        wins=""
+        ties=""
+        losses=""
+        goal_difference = "" #get_goal_difference
+        goals=""
+        received_goals = ""
+        
+        for team in self.teams:
+            if len(str(team.get_total()))==2:
+                score = "0"+str(team.get_total())
+            else:
+                score = "00"+str(team.get_total())
+                
+            if len(str(team.get_numberOfGames()))==2:
+                gamesplayed = "0"+str(team.get_numberOfGames())
+            else:
+                gamesplayed = "00"+str(team.get_numberOfGames())
+
+            if len(str(team.wins))==2:
+                wins = "0"+str(team.wins)
+            else:
+                wins = "00"+str(team.wins)
+                
+            if len(str(team.ties))==2:
+                ties = "0"+str(team.ties)
+            else:
+                ties = "00"+str(team.ties)     
+
+            if len(str(team.losses))==2:
+                losses = "0"+str(team.losses)
+            else:
+                losses = "00"+str(team.losses)
+                
+            if len(str(team.goals))==2:
+                goals = "0"+str(team.goals)
+            else:
+                goals = "00"+str(team.goals)
+            lista_lexic.append([team.name,int(score+gamesplayed+wins+ties+losses+goals)])
+        return lista_lexic
+
     def fill_team(self,stats):
         '''stats[0]->teamName,stats[1]->win=1,lose=-1,tie=0
         ,stats[2]->goals,stats[3]->received_goals'''
@@ -54,7 +102,7 @@ class Tournament:
             indice_contador = 0
             marcador = [int(s) for s in line.split() if s.isdigit()]
             if len(marcador) !=2:
-                print(line)
+                # print(line)
                # next(f) #skip line
                 index = [0,0]
                 team_temp = []
@@ -111,5 +159,27 @@ def mergeSort(teams):
             teams[k]=righthalf[j]
             j=j+1
             k=k+1
-    print "Merging..."
+    print "merging.."
 
+def radixsort(random_list):
+    len_random_list = len(random_list)
+    modulus = 10
+    div = 1
+    while True:
+        # empty array, [[] for i in range(10)]
+        new_list = [[], [], [], [], [], [], [], [], [], []]
+        for value in random_list:
+            least_digit = value % modulus
+            least_digit /= div
+            new_list[least_digit].append(value)
+        modulus = modulus * 10
+        div = div * 10
+
+        if len(new_list[0]) == len_random_list:
+            return new_list[0]
+
+        random_list = []
+        rd_list_append = random_list.append
+        for x in new_list:
+            for y in x:
+                rd_list_append(y)

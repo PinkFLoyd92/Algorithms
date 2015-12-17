@@ -9,10 +9,16 @@ class Team:
     def __init__(self,name):
         "docstring"
         self.name = name
-
+        
         
     def get_total(self):
         return self.wins*3 + self.ties
         
     def __str__(self):
         return "Name: %s GOLES: %d GOLES RECIBIDOS: %d VICTORIAS: %d" %(self.name, self.goals, self.received_goals, self.wins)
+
+    def get_numberOfGames(self):
+        return self.wins+self.ties+self.losses
+
+    def get_goal_difference(self):
+        return self.goals - self.received_goals
