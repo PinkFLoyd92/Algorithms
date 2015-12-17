@@ -232,6 +232,24 @@ def partition(alist,first,last):
     alist[rightmark] = temp
     return rightmark
 
+def countingSort( aList, k ):
+    aList2 = list(aList)
+    counter = [0] * ( k + 1 )
+    for i in aList:
+      counter[i.wins] += 1
+
+    ndx = 0;
+    for i in range( len( counter ) ):
+      while 0 < counter[i]:
+        for j in aList2:
+            if j.wins == i:
+                temp = j
+                aList2.remove(j)
+                break
+        aList[ndx] = temp
+        ndx += 1
+        counter[i] -= 1
+
 def bubbleSort(alist):#goal difference
     for passnum in range(len(alist)-1,0,-1):
         for i in range(passnum):
