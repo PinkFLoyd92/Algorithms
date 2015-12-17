@@ -2,6 +2,7 @@
 from tournament import Tournament
 from tournament import mergeSort
 from tournament import radixsort
+from tournament import quickSort
 from sys import argv
 
 def radix_print(torneo):
@@ -22,7 +23,9 @@ def main():
     txt = open(filename)
     torneo = Tournament(filename)
     torneo.load_teams()
-    radix_print(torneo)
+    quickSort(torneo.teams)
+    torneo.print_teams()
+    #radix_print(torneo)
     
 if __name__ == '__main__':
     main()
