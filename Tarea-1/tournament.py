@@ -112,7 +112,7 @@ class Tournament:
                     if marcador[0] > marcador[1]:
                         stats.insert(0,[team_temp[1][0],1,marcador[0],marcador[1]])
                         stats.insert(1,[team_temp[0][0],-1,marcador[1],marcador[0]])
-                    if marcador[0] == marcador[1]:
+                    elif marcador[0] == marcador[1]:
                         stats.insert(0,[team_temp[1][0],0,marcador[0],marcador[1]])
                         stats.insert(1,[team_temp[0][0],0,marcador[1],marcador[0]])
                     else:
@@ -120,16 +120,16 @@ class Tournament:
                         stats.insert(1,[team_temp[0][0],1,marcador[1],marcador[0]])
                 else:
                     if marcador[1] > marcador[0]:
-                        stats.insert(0,[team_temp[1][0],1,marcador[0],marcador[1]])
-                        stats.insert(1,[team_temp[0][0],-1,marcador[1],marcador[0]])
-                    if marcador[0] == marcador[1]:
-                        stats.insert(0,[team_temp[1][0],0,marcador[0],marcador[1]])
-                        stats.insert(1,[team_temp[0][0],0,marcador[1],marcador[0]])
+                        stats.insert(0,[team_temp[0][0],-1,marcador[0],marcador[1]])
+                        stats.insert(1,[team_temp[1][0],1,marcador[1],marcador[0]])
+                    elif marcador[0] == marcador[1]:
+                        stats.insert(0,[team_temp[0][0],0,marcador[0],marcador[1]])
+                        stats.insert(1,[team_temp[1][0],0,marcador[1],marcador[0]])
                     else:
-                        stats.insert(0,[team_temp[1][0],-1,marcador[0],marcador[1]])
-                        stats.insert(1,[team_temp[0][0],1,marcador[1],marcador[0]])
-                    self.fill_team(stats[0])
-                    self.fill_team(stats[1])
+                        stats.insert(0,[team_temp[0][0],1,marcador[0],marcador[1]])
+                        stats.insert(1,[team_temp[1][0],-1,marcador[1],marcador[0]])
+                self.fill_team(stats[0])
+                self.fill_team(stats[1])
         f.close()        
 
 def mergeSort(teams):
