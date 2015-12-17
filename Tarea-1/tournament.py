@@ -206,30 +206,28 @@ def quickSortHelper(alist,first,last):
 
 
 def partition(alist,first,last):
-   pivotvalue = (alist[first].wins * 3) + (alist[first].ties)
+    pivotvalue = (alist[first].wins * 3) + (alist[first].ties)
 
-   leftmark = first+1
-   rightmark = last
+    leftmark = first+1
+    rightmark = last
 
-   done = False
-   while not done:
+    done = False
+    while not done:
 
-       while leftmark <= rightmark and (alist[leftmark].wins * 3) + (alist[leftmark].ties) <= pivotvalue:
-           leftmark = leftmark + 1
+        while leftmark <= rightmark and (alist[leftmark].wins * 3) + (alist[leftmark].ties) <= pivotvalue:
+            leftmark = leftmark + 1
 
-       while (alist[rightmark].wins * 3) + (alist[rightmark].ties) >= pivotvalue and rightmark >= leftmark:
-           rightmark = rightmark -1
+        while (alist[rightmark].wins * 3) + (alist[rightmark].ties) >= pivotvalue and rightmark >= leftmark:
+            rightmark = rightmark -1
 
-       if rightmark < leftmark:
-           done = True
-       else:
-           temp = alist[leftmark]
-           alist[leftmark] = alist[rightmark]
-           alist[rightmark] = temp
+        if rightmark < leftmark:
+            done = True
+        else:
+            temp = alist[leftmark]
+            alist[leftmark] = alist[rightmark]
+            alist[rightmark] = temp
 
-   temp = alist[first]
-   alist[first] = alist[rightmark]
-   alist[rightmark] = temp
-
-
-   return rightmark
+    temp = alist[first]
+    alist[first] = alist[rightmark]
+    alist[rightmark] = temp
+    return rightmark
