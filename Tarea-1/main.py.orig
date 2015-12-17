@@ -2,8 +2,11 @@
 from tournament import Tournament
 from tournament import mergeSort
 from tournament import radixsort
+<<<<<<< HEAD
 from tournament import insertion_sort
+=======
 from tournament import quickSort
+>>>>>>> 7981375de376e275a2969e380ae6b9dad73b9657
 from sys import argv
 
 def radix_print(torneo):
@@ -11,6 +14,7 @@ def radix_print(torneo):
     lista_radix = torneo.getLexicographicOrder()
     for item in lista_radix:
         lista_numbers.append(item[1])
+        # print item[1]
         
     lista_numbers = radixsort(lista_numbers)
     for item in lista_numbers:
@@ -25,10 +29,16 @@ def main():
     txt = open(filename)
     torneo = Tournament(filename)
     torneo.load_teams()
+<<<<<<< HEAD
     insertion_sort(torneo.teams)
     torneo.print_teams()
     print "RADIX SORT"
     # radix_print(torneo)
+=======
+    quickSort(torneo.teams)
+    torneo.print_teams()
+    #radix_print(torneo)
+>>>>>>> 7981375de376e275a2969e380ae6b9dad73b9657
     
 if __name__ == '__main__':
     main()

@@ -183,6 +183,9 @@ def radixsort(random_list):
         for x in new_list:
             for y in x:
                 rd_list_append(y)
+
+<<<<<<< HEAD
+
 def insertion_sort(a):
     for i in range(1,len(a)):
         key = a[i]
@@ -193,6 +196,7 @@ def insertion_sort(a):
             j = j-1
         a[j+1] = key
         
+=======
 def quickSort(alist):
    quickSortHelper(alist,0,len(alist)-1)
 
@@ -233,3 +237,4 @@ def partition(alist,first,last):
 
 
    return rightmark
+>>>>>>> 7981375de376e275a2969e380ae6b9dad73b9657
