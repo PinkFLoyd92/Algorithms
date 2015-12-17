@@ -231,3 +231,11 @@ def partition(alist,first,last):
     alist[first] = alist[rightmark]
     alist[rightmark] = temp
     return rightmark
+
+def bubbleSort(alist):#goal difference
+    for passnum in range(len(alist)-1,0,-1):
+        for i in range(passnum):
+            if alist[i].get_goal_difference()>alist[i+1].get_goal_difference():
+                temp = alist[i]
+                alist[i] = alist[i+1]
+                alist[i+1] = temp

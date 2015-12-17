@@ -4,6 +4,7 @@ from tournament import mergeSort
 from tournament import radixsort
 from tournament import insertion_sort
 from tournament import quickSort
+from tournament import bubbleSort
 from sys import argv
 
 def radix_print(torneo):
@@ -25,7 +26,10 @@ def main():
     txt = open(filename)
     torneo = Tournament(filename)
     torneo.load_teams()
-    insertion_sort(torneo.teams)
+    torneo.print_teams()
+    print "----------------------------------"
+    bubbleSort(torneo.teams)
+    # insertion_sort(torneo.teams)
     torneo.print_teams()
     print "RADIX SORT"
     # radix_print(torneo)
