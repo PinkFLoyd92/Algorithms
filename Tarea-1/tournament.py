@@ -183,3 +183,15 @@ def radixsort(random_list):
         for x in new_list:
             for y in x:
                 rd_list_append(y)
+
+
+def insertion_sort(a):
+    for i in range(1,len(a)):
+        key = a[i]
+        # print a[i]
+        j = i-1
+        while j>=0 and a[j].get_numberOfGames() > key.get_numberOfGames():
+            a[j+1] = a[j]
+            j = j-1
+        a[j+1] = key
+        
